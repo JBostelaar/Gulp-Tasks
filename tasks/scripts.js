@@ -1,4 +1,6 @@
-module.exports = (gulp, gutil) => {
+module.exports = config => {
+	const gulp = require('gulp');
+	const gutil = require('gulp-util');
 	const browserify = require('browserify');
 	const buffer = require('vinyl-buffer');
 	const source = require('vinyl-source-stream');
@@ -21,7 +23,7 @@ module.exports = (gulp, gutil) => {
 				.pipe(buffer())
 				.pipe(sourcemaps.init({ loadMaps: true }))
 				.pipe(sourcemaps.write('./'))
-				.pipe(gulp.dest('./dist/public/assets/js'));
+				.pipe(gulp.dest(config.dest ? `${config.dest}/assets/js` : '/dist/public/assets/js'));
 		}
 
 		if (gutil.env.dev) {

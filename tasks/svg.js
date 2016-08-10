@@ -1,11 +1,12 @@
-module.exports = (gulp, gutil) => {
+module.exports = config => {
+	const gulp = require('gulp');
+	const gutil = require('gulp-util');
 	const svgSprite = require('gulp-svg-sprite');
 	const c = gutil.colors;
 
 	const svgSpriteConfig = {
 		mode: {
 			symbol: {
-				dest: '',
 				sprite: 'icons.svg',
 			},
 		},
@@ -15,7 +16,7 @@ module.exports = (gulp, gutil) => {
 		gutil.log(`${c.cyan('icons')}: spriting`);
 		return gulp.src(src)
 			.pipe(svgSprite(svgSpriteConfig))
-			.pipe(gulp.dest('dist/public/assets/img'))
+			.pipe(gulp.dest(config.dest ? `${config.dest}/assets/img` : '/dist/public/assets/img'))
 			.on('finish', () => {
 				gutil.log(`${c.cyan('icons')}: done`);
 			});

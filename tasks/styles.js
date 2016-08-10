@@ -1,4 +1,6 @@
-module.exports = (gulp, gutil) => {
+module.exports = config => {
+	const gulp = require('gulp');
+	const gutil = require('gulp-util');
 	const c = gutil.colors;
 
 	function run(src) {
@@ -20,7 +22,7 @@ module.exports = (gulp, gutil) => {
 				discardUnused: { fontFace: false },
 			}))
 			.pipe(sourcemaps.write('.'))
-			.pipe(gulp.dest('dist/public/assets/css'))
+			.pipe(gulp.dest(config.dest ? `${config.dest}/assets/css` : '/dist/public/assets/css'))
 			.on('finish', () => {
 				gutil.log(`${c.cyan('styles')}: done`);
 			});

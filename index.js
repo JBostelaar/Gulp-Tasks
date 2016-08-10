@@ -1,9 +1,9 @@
-module.exports = (gulp, gutil) => ({
-	babel: require('./tasks/babel')(gulp, gutil),
-	images: require('./tasks/images')(gulp, gutil),
-	nodemon: require('./tasks/nodemon')(gulp, gutil),
-	scripts: require('./tasks/scripts')(gulp, gutil),
-	styles: require('./tasks/styles')(gulp, gutil),
-	svg: require('./tasks/svg')(gulp, gutil),
-	symlink: require('./tasks/symlink')(gulp, gutil),
+module.exports = config => ({
+	babel: require('./tasks/babel')(config),
+	images: require('./tasks/images')(config),
+	nodemon: require('./tasks/nodemon')(config),
+	scripts: require('./tasks/scripts')(config),
+	styles: require('./tasks/styles')(config),
+	svg: require('./tasks/svg')(config),
+	symlink: require('./tasks/symlink')(config),
 });
