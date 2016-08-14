@@ -1,6 +1,6 @@
 {
-  "name": "Gulp-Tasks",
-  "version": "0.1.1",
+  "name": "gulp-tasks",
+  "version": "0.1.2",
   "description": "A set of common used gulp tasks.",
   "author": "jornbostelaar",
   "license": "MIT",
